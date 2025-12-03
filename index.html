@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>English Resources</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#3b82f6}
+body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;background:linear-gradient(160deg,#0a0c14 0%,#070810 40%,#04060d 100%);color:#f5f5f7;-webkit-font-smoothing:antialiased}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,25,0.96);backdrop-filter:blur(20px);padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);transform:translateY(0);transition:transform 0.3s}
+.header.hidden{transform:translateY(-100%)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.header-back{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,0.08);border:none;color:#f5f5f7;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center}
+.header-back.visible{display:flex}
+.header-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
+.header-text{flex:1}
+.header-title{font-size:18px;font-weight:700}
+.header-breadcrumb{font-size:12px;color:#888;margin-top:2px}
+.header-count{font-size:12px;color:#888;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,0.06)}
+.trigger{position:fixed;top:0;left:50%;transform:translateX(-50%);width:200px;height:20px;z-index:99;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px}
+.trigger::after{content:"● ● ●";font-size:6px;letter-spacing:4px;color:rgba(255,255,255,0.1);transition:all 0.2s}
+.trigger:hover::after{color:rgba(255,255,255,0.5)}
+main{padding:24px;min-height:100vh;padding-top:100px;transition:padding-top 0.3s}
+main.shift{padding-top:24px}
+.page{max-width:1400px;margin:0 auto}
+.controls{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding:18px 24px;background:linear-gradient(145deg,rgba(255,255,255,0.97),rgba(245,245,250,0.97));border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.search{flex:1;min-width:200px;position:relative}
+.search::before{content:"🔍";position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:14px}
+.search input{width:100%;padding:14px 16px 14px 48px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:rgba(0,0,0,0.02);font-size:15px;color:#1d1d1f}
+.search input:focus{outline:none;border-color:var(--accent);background:white}
+select{padding:14px 36px 14px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:white;font-size:15px;color:#1d1d1f;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6e73' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+@media(min-width:1200px){.grid{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}}
+@media(min-width:1600px){.grid{grid-template-columns:repeat(auto-fill,minmax(380px,1fr))}}
+.folder{background:linear-gradient(145deg,rgba(255,255,255,0.97),rgba(245,245,250,0.97));border-radius:18px;padding:32px 28px;cursor:pointer;transition:0.25s ease;text-align:center}
+.folder:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.5)}
+.folder-icon{width:80px;height:80px;border-radius:20px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 10px 30px rgba(0,0,0,0.25)}
+.folder-name{font-size:20px;font-weight:700;color:#1d1d1f;margin-bottom:6px}
+.folder-count{font-size:14px;color:#6e6e73}
+.item{background:linear-gradient(145deg,rgba(255,255,255,0.97),rgba(245,245,250,0.97));border-radius:14px;padding:24px;cursor:pointer;transition:0.25s ease;text-decoration:none;display:block}
+.item:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,0.45)}
+.item.featured{background:linear-gradient(135deg,var(--accent),#8b5cf6)}
+.item.featured *{color:white!important}
+.item-head{display:flex;justify-content:space-between;margin-bottom:10px}
+.item-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:#6e6e73;font-weight:600}
+.item-badge{padding:4px 10px;border-radius:999px;background:linear-gradient(135deg,#10b981,#059669);color:white;font-size:9px;font-weight:700;text-transform:uppercase}
+.item-title{font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:8px;line-height:1.35}
+.item-desc{font-size:14px;color:#6e6e73;margin-bottom:16px;line-height:1.5}
+.item-meta{display:flex;justify-content:space-between;font-size:12px;color:#888}
+.item-link{color:var(--accent);font-weight:600}
+.empty{text-align:center;padding:80px 30px;color:#888;grid-column:1/-1}
+.empty-icon{font-size:64px;margin-bottom:20px;opacity:0.4}
+.empty-title{font-size:20px;font-weight:600;color:#f5f5f7;margin-bottom:8px}
+footer{margin-top:60px;padding:24px;text-align:center;font-size:12px;color:rgba(255,255,255,0.2)}
+@media(max-width:768px){main{padding:16px;padding-top:90px}.grid{grid-template-columns:1fr;gap:16px}.controls{flex-direction:column;padding:16px}}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+<div class="header-inner">
+<button class="header-back" id="backBtn" onclick="goBack()">←</button>
+<div class="header-icon" id="headerIcon" style="background:#3b82f6">📚</div>
+<div class="header-text">
+<div class="header-title" id="headerTitle">English Resources</div>
+<div class="header-breadcrumb" id="headerBreadcrumb">Select a folder</div>
+</div>
+<div class="header-count" id="headerCount">Loading...</div>
+</div>
+</header>
+<div class="trigger" id="trigger"></div>
+<main id="main">
+<div class="page">
+<div class="controls" id="controls" style="display:none">
+<div class="search"><input type="text" id="search" placeholder="Search..."></div>
+<select id="sort"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="title">A → Z</option></select>
+</div>
+<div class="grid" id="grid"><div class="empty"><div class="empty-icon">⏳</div><div class="empty-title">Loading...</div></div></div>
+<footer>Powered by IndexForge</footer>
+</div>
+</main>
+<script>
+const DATA={"version":"5.0","settings":{"siteName":"English Resources","siteIcon":"📚","siteColor":"#3b82f6"},"folders":[{"id":"c094c1d2-77df-4122-884f-3d54318c6ebb","parentId":null,"name":"First Term","icon":"📗","color":"#10b981","order":0},{"id":"8c962463-7117-4ce3-8fcb-d940d06eec87","parentId":null,"name":"Mid Term","icon":"📘","color":"#3b82f6","order":1},{"id":"8a580117-5890-4c7d-9568-3033aab7873e","parentId":null,"name":"Third Term","icon":"📙","color":"#f59e0b","order":2}],"items":[{"id":"45631ae7-e216-4994-9de4-62b2076cbcbe","folderId":"8c962463-7117-4ce3-8fcb-d940d06eec87","title":"grammar_breakdown_2","fileName":"grammar_breakdown_2.html","filePath":"files/8c962463-7117-4ce3-8fcb-d940d06eec87/grammar_breakdown_2.html","fileSize":54849,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"4e22d5a5-fb61-4dd5-8799-e512c94e2154","folderId":"8a580117-5890-4c7d-9568-3033aab7873e","title":"grammar_breakdown_3","fileName":"grammar_breakdown_3.html","filePath":"files/8a580117-5890-4c7d-9568-3033aab7873e/grammar_breakdown_3.html","fileSize":25967,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"97197107-9a1f-4415-b5f7-c5ec1ea8166d","folderId":"c094c1d2-77df-4122-884f-3d54318c6ebb","title":"grammar_breakdown_1","fileName":"grammar_breakdown_1.html","filePath":"files/c094c1d2-77df-4122-884f-3d54318c6ebb/grammar_breakdown_1.html","fileSize":71872,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""}],"lastUpdated":"2025-12-03T09:41:50.925Z"};
+const REPO_URL="https://raw.githubusercontent.com/harashima-eng/English-Resources/main/";
+let folders=DATA.folders||[];
+let items=DATA.items||[];
+let navStack=[];
+let currentFolderId=null;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+const isNew=d=>d&&(Date.now()-new Date(d))/86400000<=7;
+function getChildren(pid){return folders.filter(f=>f.parentId===pid).sort((a,b)=>(a.order||0)-(b.order||0))}
+function getCount(fid){let c=items.filter(i=>i.folderId===fid).length;getChildren(fid).forEach(ch=>c+=getCount(ch.id));return c}
+function render(){
+const grid=$("grid"),ctrl=$("controls");
+if(!currentFolderId){
+ctrl.style.display="none";
+const roots=getChildren(null);
+if(!roots.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📁</div><div class="empty-title">No Folders</div></div>';return}
+grid.innerHTML=roots.map(f=>`<div class="folder" onclick="openFolder('${f.id}')"><div class="folder-icon" style="background:${f.color||"#3b82f6"}">${f.icon||"📁"}</div><div class="folder-name">${esc(f.name)}</div><div class="folder-count">${getCount(f.id)} items</div></div>`).join("");
+updateHeader();return;
+}
+ctrl.style.display="flex";
+const q=$("search").value.toLowerCase();
+const sort=$("sort").value;
+const subs=getChildren(currentFolderId);
+let its=items.filter(i=>{if(i.folderId!==currentFolderId)return false;if(!q)return true;return(i.title||"").toLowerCase().includes(q)||(i.keywords||"").toLowerCase().includes(q)});
+its.sort((a,b)=>{if(sort==="newest")return(b.date||"").localeCompare(a.date||"");if(sort==="oldest")return(a.date||"").localeCompare(b.date||"");return(a.title||"").localeCompare(b.title||"")});
+if(!subs.length&&!its.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📭</div><div class="empty-title">Empty</div></div>';updateHeader();return}
+let html="";
+subs.forEach(sf=>{html+=`<div class="folder" onclick="openFolder('${sf.id}')"><div class="folder-icon" style="background:${sf.color||"#6b7280"}">${sf.icon||"📁"}</div><div class="folder-name">${esc(sf.name)}</div><div class="folder-count">${getCount(sf.id)} items</div></div>`});
+its.forEach(it=>{
+const featured=(it.tags||[]).includes("Featured");
+const tags=(it.tags||[]).filter(t=>t!=="Featured").slice(0,2).join(" · ");
+const url=it.filePath?REPO_URL+it.filePath:"#";
+html+=`<a href="${esc(url)}" target="_blank" class="item ${featured?"featured":""}"><div class="item-head"><span class="item-label">${tags||"Resource"}</span>${isNew(it.date)?'<span class="item-badge">NEW</span>':""}</div><div class="item-title">${esc(it.title||"(Untitled)")}</div><div class="item-desc">${esc(it.keywords||"")}</div><div class="item-meta"><span>${it.date||"—"}${it.minutes?" · "+it.minutes+" min":""}</span><span class="item-link">Open →</span></div></a>`;
+});
+grid.innerHTML=html;
+updateHeader();
+}
+function openFolder(id){if(currentFolderId!==null)navStack.push(currentFolderId);currentFolderId=id;$("search").value="";render()}
+function goBack(){currentFolderId=navStack.length?navStack.pop():null;$("search").value="";render()}
+function updateHeader(){
+const back=$("backBtn"),icon=$("headerIcon"),title=$("headerTitle"),bc=$("headerBreadcrumb"),count=$("headerCount");
+if(!currentFolderId){back.classList.remove("visible");icon.textContent="📚";icon.style.background="#3b82f6";title.textContent="English Resources";bc.textContent="Select a folder";count.textContent=getChildren(null).length+" folders";return}
+back.classList.add("visible");
+const f=folders.find(x=>x.id===currentFolderId);
+icon.textContent=f?.icon||"📁";icon.style.background=f?.color||"#6b7280";title.textContent=f?.name||"Folder";
+const path=[];let p=f;while(p){path.unshift(p.name);p=p.parentId?folders.find(x=>x.id===p.parentId):null}
+bc.textContent=path.join(" › ");
+const subC=getChildren(currentFolderId).length;
+const itemC=items.filter(i=>i.folderId===currentFolderId).length;
+count.textContent=(subC?subC+" folders, ":"")+itemC+" items";
+}
+const header=$("header"),trigger=$("trigger"),main=$("main");
+let hideT,hovered=false;
+function show(){clearTimeout(hideT);header.classList.remove("hidden");main.classList.remove("shift")}
+function hide(){if(!hovered){header.classList.add("hidden");main.classList.add("shift")}}
+function schedule(){clearTimeout(hideT);hideT=setTimeout(hide,2500)}
+trigger.addEventListener("mouseenter",show);
+header.addEventListener("mouseenter",()=>{hovered=true;show()});
+header.addEventListener("mouseleave",()=>{hovered=false;schedule()});
+schedule();
+$("search").addEventListener("input",render);
+$("sort").addEventListener("change",render);
+render();
+</script>
+</body>
+</html>
