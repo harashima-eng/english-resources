@@ -6,51 +6,60 @@
 <title>English Resources</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--accent:#3c5277}
+:root{--accent:#3c5277;--glow:#3c527750}
 html{scroll-behavior:smooth}
-body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",sans-serif;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(41,151,255,0.12),transparent 50%),radial-gradient(ellipse 60% 40% at 100% 0%,rgba(191,90,242,0.1),transparent 40%),linear-gradient(180deg,#000 0%,#0a0a0c 30%,#111114 60%,#0d0d0f 100%);background-attachment:fixed;color:#f5f5f7;-webkit-font-smoothing:antialiased}
-.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(28,28,30,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.08);transform:translateY(0);transition:transform 0.4s cubic-bezier(0.25,0.1,0.25,1),opacity 0.3s}
+body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;background:#000;color:#f5f5f7;-webkit-font-smoothing:antialiased}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse 50% 40% at 50% 20%,rgba(41,151,255,0.3),transparent 50%),radial-gradient(ellipse 40% 30% at 80% 10%,rgba(191,90,242,0.25),transparent 40%),radial-gradient(ellipse 35% 25% at 20% 80%,rgba(48,209,88,0.2),transparent 40%);animation:drift 20s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(0,0) rotate(0deg)}100%{transform:translate(2%,2%) rotate(3deg)}}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.7);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.08);transform:translateY(0);transition:transform 0.4s,opacity 0.3s}
 .header.hidden{transform:translateY(-100%);opacity:0}
 .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:18px}
 .header-back{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#f5f5f7;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:all 0.2s}
 .header-back:hover{background:rgba(255,255,255,0.14)}
 .header-back.visible{display:flex}
-.header-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 24px rgba(0,0,0,0.3);background-size:cover;background-position:center}
+.header-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 32px rgba(0,0,0,0.4),0 0 60px var(--glow);background-size:cover;background-position:center}
 .header-text{flex:1}
-.header-title{font-size:20px;font-weight:600;letter-spacing:-0.02em}
+.header-title{font-size:20px;font-weight:600}
 .header-breadcrumb{font-size:13px;color:#86868b;margin-top:3px}
 .header-count{font-size:13px;color:#86868b;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08)}
 .trigger{position:fixed;top:0;left:0;right:0;height:32px;z-index:99;cursor:pointer}
 .trigger-dots{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:6px}
 .trigger-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.12);transition:all 0.2s}
 .trigger:hover .trigger-dot{background:rgba(255,255,255,0.5)}
-main{padding:28px;min-height:100vh;padding-top:110px;transition:padding-top 0.4s cubic-bezier(0.25,0.1,0.25,1)}
+main{padding:28px;min-height:100vh;padding-top:110px;transition:padding-top 0.4s}
 main.shift{padding-top:28px}
 .page{max-width:1400px;margin:0 auto}
-.controls{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;padding:20px 26px;background:linear-gradient(145deg,rgba(255,255,255,0.95),rgba(248,248,250,0.97));border-radius:18px;box-shadow:0 24px 48px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.1)}
+.controls{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;padding:24px 28px;background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
 .search{flex:1;min-width:200px;position:relative}
 .search::before{content:"🔍";position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:14px;opacity:0.5}
-.search input{width:100%;padding:16px 18px 16px 52px;border-radius:14px;border:1px solid rgba(0,0,0,0.06);background:rgba(0,0,0,0.02);font-size:16px;color:#1d1d1f;transition:all 0.2s}
-.search input:focus{outline:none;border-color:var(--accent);background:white}
-select{padding:16px 42px 16px 18px;border-radius:14px;border:1px solid rgba(0,0,0,0.06);background:white;font-size:16px;color:#1d1d1f;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386868b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.search input{width:100%;padding:16px 18px 16px 52px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);font-size:16px;color:#f5f5f7;transition:all 0.2s}
+.search input::placeholder{color:#6e6e73}
+.search input:focus{outline:none;border-color:var(--accent);background:rgba(255,255,255,0.08)}
+select{padding:16px 42px 16px 18px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);font-size:16px;color:#f5f5f7;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386868b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+select option{background:#1c1c1e;color:#f5f5f7}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
 @media(min-width:1200px){.grid{grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:28px}}
-@media(min-width:1600px){.grid{grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}}
-.folder{background:linear-gradient(145deg,rgba(255,255,255,0.95),rgba(248,248,250,0.97));border-radius:20px;padding:36px 32px;cursor:pointer;transition:all 0.3s cubic-bezier(0.25,0.1,0.25,1);text-align:center;border:1px solid rgba(255,255,255,0.1)}
-.folder:hover{transform:translateY(-8px);box-shadow:0 32px 64px rgba(0,0,0,0.4)}
-.folder-icon{width:88px;height:88px;border-radius:22px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:0 12px 32px rgba(0,0,0,0.2);background-size:cover;background-position:center}
-.folder-name{font-size:21px;font-weight:600;color:#1d1d1f;margin-bottom:6px;letter-spacing:-0.02em}
-.folder-count{font-size:15px;color:#86868b}
-.item{background:linear-gradient(145deg,rgba(255,255,255,0.95),rgba(248,248,250,0.97));border-radius:16px;padding:26px;cursor:pointer;transition:all 0.3s cubic-bezier(0.25,0.1,0.25,1);text-decoration:none;display:block;border:1px solid rgba(255,255,255,0.1)}
-.item:hover{transform:translateY(-6px);box-shadow:0 28px 56px rgba(0,0,0,0.35)}
+.folder{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:24px;padding:40px 32px;cursor:pointer;transition:all 0.4s;text-align:center;border:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+.folder::before{content:'';position:absolute;inset:-50%;background:radial-gradient(ellipse 40% 30% at 50% 100%,var(--glow),transparent 60%);opacity:0;transition:opacity 0.4s}
+.folder:hover{transform:translateY(-8px);border-color:rgba(255,255,255,0.15);box-shadow:0 30px 60px rgba(0,0,0,0.4)}
+.folder:hover::before{opacity:1}
+.folder-icon{width:96px;height:96px;border-radius:24px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 16px 48px rgba(0,0,0,0.4),0 0 80px var(--glow);background-size:cover;background-position:center;position:relative;z-index:1}
+.folder-name{font-size:22px;font-weight:600;color:#f5f5f7;margin-bottom:8px;position:relative;z-index:1}
+.folder-count{font-size:15px;color:#86868b;position:relative;z-index:1}
+.item{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:20px;padding:28px;cursor:pointer;transition:all 0.4s;text-decoration:none;display:block;border:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+.item::before{content:'';position:absolute;bottom:-20%;left:-20%;right:-20%;height:80%;background:radial-gradient(ellipse 60% 40% at 50% 100%,var(--glow),transparent 60%);opacity:0;transition:opacity 0.4s}
+.item:hover{transform:translateY(-6px);border-color:rgba(255,255,255,0.15);box-shadow:0 24px 48px rgba(0,0,0,0.4)}
+.item:hover::before{opacity:0.6}
 .item.featured{background:linear-gradient(135deg,var(--accent),#bf5af2)}
+.item.featured::before{display:none}
 .item.featured *{color:white!important}
-.item-head{display:flex;justify-content:space-between;margin-bottom:12px}
+.item-head{display:flex;justify-content:space-between;margin-bottom:14px;position:relative;z-index:1}
 .item-label{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#86868b;font-weight:600}
-.item-badge{padding:5px 12px;border-radius:999px;background:linear-gradient(135deg,#30d158,#28a745);color:white;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
-.item-title{font-size:19px;font-weight:600;color:#1d1d1f;margin-bottom:10px;line-height:1.35;letter-spacing:-0.02em}
-.item-desc{font-size:15px;color:#86868b;margin-bottom:18px;line-height:1.5}
-.item-meta{display:flex;justify-content:space-between;font-size:13px;color:#86868b}
+.item-badge{padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,#30d158,#28a745);color:white;font-size:10px;font-weight:700;text-transform:uppercase;box-shadow:0 4px 16px rgba(48,209,88,0.4)}
+.item-title{font-size:20px;font-weight:600;color:#f5f5f7;margin-bottom:12px;line-height:1.35;position:relative;z-index:1}
+.item-desc{font-size:15px;color:#86868b;margin-bottom:20px;line-height:1.5;position:relative;z-index:1}
+.item-meta{display:flex;justify-content:space-between;font-size:13px;color:#86868b;position:relative;z-index:1}
 .item-link{color:var(--accent);font-weight:600}
 .empty{text-align:center;padding:100px 32px;color:#86868b;grid-column:1/-1}
 .empty-icon{font-size:72px;margin-bottom:24px;opacity:0.3}
@@ -60,94 +69,29 @@ footer{margin-top:80px;padding:28px;text-align:center;font-size:13px;color:rgba(
 </style>
 </head>
 <body>
-<header class="header" id="header">
-<div class="header-inner">
-<button class="header-back" id="backBtn" onclick="goBack()">←</button>
-<div class="header-icon" id="headerIcon" style="background:#3c5277">📚</div>
-<div class="header-text">
-<div class="header-title" id="headerTitle">English Resources</div>
-<div class="header-breadcrumb" id="headerBreadcrumb">Select a folder</div>
-</div>
-<div class="header-count" id="headerCount">Loading...</div>
-</div>
-</header>
+<div class="bg"></div>
+<header class="header" id="header"><div class="header-inner"><button class="header-back" id="backBtn" onclick="goBack()">←</button><div class="header-icon" id="headerIcon" style="background:#3c5277">📚</div><div class="header-text"><div class="header-title" id="headerTitle">English Resources</div><div class="header-breadcrumb" id="headerBreadcrumb">Select a folder</div></div><div class="header-count" id="headerCount">Loading...</div></div></header>
 <div class="trigger" id="trigger"><div class="trigger-dots"><div class="trigger-dot"></div><div class="trigger-dot"></div><div class="trigger-dot"></div></div></div>
-<main id="main">
-<div class="page">
-<div class="controls" id="controls" style="display:none">
-<div class="search"><input type="text" id="search" placeholder="Search..."></div>
-<select id="sort"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="title">A → Z</option></select>
-</div>
-<div class="grid" id="grid"><div class="empty"><div class="empty-icon">⏳</div><div class="empty-title">Loading...</div></div></div>
-<footer>Powered by IndexForge</footer>
-</div>
-</main>
+<main id="main"><div class="page"><div class="controls" id="controls" style="display:none"><div class="search"><input type="text" id="search" placeholder="Search..."></div><select id="sort"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="title">A → Z</option></select></div><div class="grid" id="grid"><div class="empty"><div class="empty-icon">⏳</div><div class="empty-title">Loading...</div></div></div><footer>Powered by IndexForge</footer></div></main>
 <script>
-const DATA={"version":"5.0","settings":{"siteName":"English Resources","siteIcon":"📚","siteColor":"#3c5277"},"folders":[{"id":"104f491e-6aa2-4931-a2e5-3f8e1bdb027b","parentId":null,"name":"高３","icon":"📁","color":"#0b8e4a","order":0,"iconImage":null},{"id":"18109fdd-40a2-4ee4-84d5-050dcedf571a","parentId":"104f491e-6aa2-4931-a2e5-3f8e1bdb027b","name":"論理・表現III","icon":"📁","color":"#1e8044","order":0,"iconImage":null},{"id":"aac20107-d8fb-4522-be26-96e73758d7b1","parentId":null,"name":"高２","icon":"📁","color":"#112f69","order":1,"iconImage":null},{"id":"be163e55-6b32-44d0-8a7c-13ec2f861c4e","parentId":null,"name":"高１","icon":"📁","color":"#932546","order":2,"iconImage":null},{"id":"d157d289-5646-4c09-80f1-62f697e08b83","parentId":"104f491e-6aa2-4931-a2e5-3f8e1bdb027b","name":"英語コミュニケーションIII","icon":"📁","color":"#e5c93e","order":3,"iconImage":null}],"items":[{"id":"05949858-9fad-4704-aee3-22ceb40680fb","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_2","fileName":"grammar_breakdown_2.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_2.html","fileSize":54849,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"09e78723-e199-4a32-980f-9c0eed25c8cc","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_3","fileName":"grammar_breakdown_3.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_3.html","fileSize":25967,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"bf28facb-8c8b-43d7-a46c-733ee1beffa0","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_4","fileName":"grammar_breakdown_4.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_4.html","fileSize":52654,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"bf7ecdc5-22a4-47b2-afe1-18c71a6f3e90","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_8","fileName":"grammar_breakdown_8.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_8.html","fileSize":62216,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"50efb1ee-bb56-45da-8bea-7e6d9d7e2b60","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_5","fileName":"grammar_breakdown_5.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_5.html","fileSize":48752,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"030c8f0a-a16d-4bf1-a967-9810d6ec4365","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_10","fileName":"grammar_breakdown_10.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_10.html","fileSize":37850,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"63eeca2f-3384-4d99-a8b4-09fef7621ddc","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_1","fileName":"grammar_breakdown_1.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_1.html","fileSize":71872,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"a8c55619-9940-4cb0-8acb-6793d2e6a48c","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_7","fileName":"grammar_breakdown_7.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_7.html","fileSize":118220,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"faeb568e-c369-42d2-a346-e4981e7d097c","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_9","fileName":"grammar_breakdown_9.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_9.html","fileSize":81791,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"d3567532-848c-415b-9675-6e1553cc97cb","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_6","fileName":"grammar_breakdown_6.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_6.html","fileSize":73853,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"b7da5110-a68a-4d9e-880a-5d65cca41648","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"polysemy_test_breakdown","fileName":"polysemy_test_breakdown.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/polysemy_test_breakdown.html","fileSize":97151,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""}],"lastUpdated":"2025-12-03T15:26:05.386Z"};
+const DATA={"version":"5.0","settings":{"siteName":"English Resources","siteIcon":"📚","siteColor":"#3c5277"},"folders":[{"id":"104f491e-6aa2-4931-a2e5-3f8e1bdb027b","parentId":null,"name":"高３","icon":"📁","color":"#0b8e4a","order":0,"iconImage":null},{"id":"18109fdd-40a2-4ee4-84d5-050dcedf571a","parentId":"104f491e-6aa2-4931-a2e5-3f8e1bdb027b","name":"論理・表現III","icon":"📁","color":"#1e8044","order":0,"iconImage":null},{"id":"aac20107-d8fb-4522-be26-96e73758d7b1","parentId":null,"name":"高２","icon":"📁","color":"#112f69","order":1,"iconImage":null},{"id":"be163e55-6b32-44d0-8a7c-13ec2f861c4e","parentId":null,"name":"高１","icon":"📁","color":"#932546","order":2,"iconImage":null},{"id":"d157d289-5646-4c09-80f1-62f697e08b83","parentId":"104f491e-6aa2-4931-a2e5-3f8e1bdb027b","name":"英語コミュニケーションIII","icon":"📁","color":"#e5c93e","order":3,"iconImage":null}],"items":[{"id":"05949858-9fad-4704-aee3-22ceb40680fb","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_2","fileName":"grammar_breakdown_2.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_2.html","fileSize":54849,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"09e78723-e199-4a32-980f-9c0eed25c8cc","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_3","fileName":"grammar_breakdown_3.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_3.html","fileSize":25967,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"bf28facb-8c8b-43d7-a46c-733ee1beffa0","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_4","fileName":"grammar_breakdown_4.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_4.html","fileSize":52654,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"bf7ecdc5-22a4-47b2-afe1-18c71a6f3e90","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_8","fileName":"grammar_breakdown_8.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_8.html","fileSize":62216,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"50efb1ee-bb56-45da-8bea-7e6d9d7e2b60","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_5","fileName":"grammar_breakdown_5.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_5.html","fileSize":48752,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"030c8f0a-a16d-4bf1-a967-9810d6ec4365","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_10","fileName":"grammar_breakdown_10.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_10.html","fileSize":37850,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"63eeca2f-3384-4d99-a8b4-09fef7621ddc","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_1","fileName":"grammar_breakdown_1.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_1.html","fileSize":71872,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"a8c55619-9940-4cb0-8acb-6793d2e6a48c","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_7","fileName":"grammar_breakdown_7.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_7.html","fileSize":118220,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"faeb568e-c369-42d2-a346-e4981e7d097c","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_9","fileName":"grammar_breakdown_9.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_9.html","fileSize":81791,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"d3567532-848c-415b-9675-6e1553cc97cb","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"grammar_breakdown_6","fileName":"grammar_breakdown_6.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/grammar_breakdown_6.html","fileSize":73853,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""},{"id":"b7da5110-a68a-4d9e-880a-5d65cca41648","folderId":"18109fdd-40a2-4ee4-84d5-050dcedf571a","title":"polysemy_test_breakdown","fileName":"polysemy_test_breakdown.html","filePath":"files/18109fdd-40a2-4ee4-84d5-050dcedf571a/polysemy_test_breakdown.html","fileSize":97151,"mimeType":"text/html","date":"2025-12-03","tags":[],"keywords":"","minutes":""}],"lastUpdated":"2025-12-04T00:27:15.119Z"};
 const REPO_URL="https://harashima-eng.github.io/English-Resources/";
-let folders=DATA.folders||[];
-let items=DATA.items||[];
-let navStack=[];
-let currentFolderId=null;
-const $=id=>document.getElementById(id);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
-const isNew=d=>d&&(Date.now()-new Date(d))/86400000<=7;
+let folders=DATA.folders||[];let items=DATA.items||[];let navStack=[];let currentFolderId=null;
+const $=id=>document.getElementById(id);const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);const isNew=d=>d&&(Date.now()-new Date(d))/86400000<=7;
 function getChildren(pid){return folders.filter(f=>f.parentId===pid).sort((a,b)=>(a.order||0)-(b.order||0))}
 function getCount(fid){let c=items.filter(i=>i.folderId===fid).length;getChildren(fid).forEach(ch=>c+=getCount(ch.id));return c}
-function render(){
-const grid=$("grid"),ctrl=$("controls");
-if(!currentFolderId){
-ctrl.style.display="none";
-const roots=getChildren(null);
-if(!roots.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📁</div><div class="empty-title">No Folders</div></div>';return}
-grid.innerHTML=roots.map(f=>{const iconStyle=f.iconImage?'background-image:url('+f.iconImage+');background-color:transparent;':'background:'+(f.color||"#2997ff");return '<div class="folder" onclick="openFolder(\''+f.id+'\')"><div class="folder-icon" style="'+iconStyle+'">'+(f.iconImage?'':f.icon||"📁")+'</div><div class="folder-name">'+esc(f.name)+'</div><div class="folder-count">'+getCount(f.id)+' items</div></div>'}).join("");
-updateHeader();return;
-}
-ctrl.style.display="flex";
-const q=$("search").value.toLowerCase();
-const sort=$("sort").value;
-const subs=getChildren(currentFolderId);
-let its=items.filter(i=>{if(i.folderId!==currentFolderId)return false;if(!q)return true;return(i.title||"").toLowerCase().includes(q)||(i.keywords||"").toLowerCase().includes(q)});
-its.sort((a,b)=>{if(sort==="newest")return(b.date||"").localeCompare(a.date||"");if(sort==="oldest")return(a.date||"").localeCompare(b.date||"");return(a.title||"").localeCompare(b.title||"")});
-if(!subs.length&&!its.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📭</div><div class="empty-title">Empty</div></div>';updateHeader();return}
-let html="";
-subs.forEach(sf=>{const iconStyle=sf.iconImage?'background-image:url('+sf.iconImage+');background-color:transparent;':'background:'+(sf.color||"#6b7280");html+='<div class="folder" onclick="openFolder(\''+sf.id+'\')"><div class="folder-icon" style="'+iconStyle+'">'+(sf.iconImage?'':sf.icon||"📁")+'</div><div class="folder-name">'+esc(sf.name)+'</div><div class="folder-count">'+getCount(sf.id)+' items</div></div>'});
-its.forEach(it=>{
-const featured=(it.tags||[]).includes("Featured");
-const tags=(it.tags||[]).filter(t=>t!=="Featured").slice(0,2).join(" · ");
-const url=it.filePath?REPO_URL+it.filePath:"#";
-html+='<a href="'+esc(url)+'" target="_blank" class="item '+(featured?"featured":"")+'"><div class="item-head"><span class="item-label">'+(tags||"Resource")+'</span>'+(isNew(it.date)?'<span class="item-badge">NEW</span>':"")+'</div><div class="item-title">'+esc(it.title||"(Untitled)")+'</div><div class="item-desc">'+esc(it.keywords||"")+'</div><div class="item-meta"><span>'+(it.date||"—")+(it.minutes?" · "+it.minutes+" min":"")+'</span><span class="item-link">Open →</span></div></a>';
-});
-grid.innerHTML=html;
-updateHeader();
-}
-function openFolder(id){if(currentFolderId!==null)navStack.push(currentFolderId);currentFolderId=id;$("search").value="";render()}
-function goBack(){currentFolderId=navStack.length?navStack.pop():null;$("search").value="";render()}
-function updateHeader(){
-const back=$("backBtn"),icon=$("headerIcon"),title=$("headerTitle"),bc=$("headerBreadcrumb"),count=$("headerCount");
-if(!currentFolderId){back.classList.remove("visible");icon.textContent="📚";icon.style.background="#3c5277";icon.style.backgroundImage="";title.textContent="English Resources";bc.textContent="Select a folder";count.textContent=getChildren(null).length+" folders";return}
-back.classList.add("visible");
-const f=folders.find(x=>x.id===currentFolderId);
-if(f.iconImage){icon.style.backgroundImage="url("+f.iconImage+")";icon.style.background="transparent";icon.textContent="";}else{icon.textContent=f?.icon||"📁";icon.style.background=f?.color||"#6b7280";icon.style.backgroundImage="";}
-title.textContent=f?.name||"Folder";
-const path=[];let p=f;while(p){path.unshift(p.name);p=p.parentId?folders.find(x=>x.id===p.parentId):null}
-bc.textContent=path.join(" › ");
-const subC=getChildren(currentFolderId).length;
-const itemC=items.filter(i=>i.folderId===currentFolderId).length;
-count.textContent=(subC?subC+" folders, ":"")+itemC+" items";
-}
-const header=$("header"),trigger=$("trigger"),main=$("main");
-let hideT,hovered=false;
+function render(){const grid=$("grid"),ctrl=$("controls");if(!currentFolderId){ctrl.style.display="none";const roots=getChildren(null);if(!roots.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📁</div><div class="empty-title">No Folders</div></div>';return}grid.innerHTML=roots.map(f=>{const iconStyle=f.iconImage?'background-image:url('+f.iconImage+');background-color:transparent;':'background:'+(f.color||"#2997ff");const glowColor=f.color||"#2997ff";return '<div class="folder" style="--glow:'+glowColor+'50" onclick="openFolder(\''+f.id+'\')"><div class="folder-icon" style="'+iconStyle+';--glow:'+glowColor+'50">'+(f.iconImage?'':f.icon||"📁")+'</div><div class="folder-name">'+esc(f.name)+'</div><div class="folder-count">'+getCount(f.id)+' items</div></div>'}).join("");updateHeader();return}ctrl.style.display="flex";const q=$("search").value.toLowerCase();const sort=$("sort").value;const subs=getChildren(currentFolderId);let its=items.filter(i=>{if(i.folderId!==currentFolderId)return false;if(!q)return true;return(i.title||"").toLowerCase().includes(q)||(i.keywords||"").toLowerCase().includes(q)});its.sort((a,b)=>{if(sort==="newest")return(b.date||"").localeCompare(a.date||"");if(sort==="oldest")return(a.date||"").localeCompare(b.date||"");return(a.title||"").localeCompare(b.title||"")});if(!subs.length&&!its.length){grid.innerHTML='<div class="empty"><div class="empty-icon">📭</div><div class="empty-title">Empty</div></div>';updateHeader();return}let html="";subs.forEach(sf=>{const iconStyle=sf.iconImage?'background-image:url('+sf.iconImage+');background-color:transparent;':'background:'+(sf.color||"#6b7280");const glowColor=sf.color||"#6b7280";html+='<div class="folder" style="--glow:'+glowColor+'50" onclick="openFolder(\''+sf.id+'\')"><div class="folder-icon" style="'+iconStyle+';--glow:'+glowColor+'50">'+(sf.iconImage?'':sf.icon||"📁")+'</div><div class="folder-name">'+esc(sf.name)+'</div><div class="folder-count">'+getCount(sf.id)+' items</div></div>'});its.forEach(it=>{const featured=(it.tags||[]).includes("Featured");const tags=(it.tags||[]).filter(t=>t!=="Featured").slice(0,2).join(" · ");const url=it.filePath?REPO_URL+it.filePath:"#";html+='<a href="'+esc(url)+'" target="_blank" class="item '+(featured?"featured":"")+'"><div class="item-head"><span class="item-label">'+(tags||"Resource")+'</span>'+(isNew(it.date)?'<span class="item-badge">NEW</span>':"")+'</div><div class="item-title">'+esc(it.title||"(Untitled)")+'</div><div class="item-desc">'+esc(it.keywords||"")+'</div><div class="item-meta"><span>'+(it.date||"—")+(it.minutes?" · "+it.minutes+" min":"")+'</span><span class="item-link">Open →</span></div></a>'});grid.innerHTML=html;updateHeader()}
+function openFolder(id){if(currentFolderId!==null)navStack.push(currentFolderId);currentFolderId=id;$("search").value="";render();history.pushState({folder:id},"","?folder="+id)}
+function goBack(){currentFolderId=navStack.length?navStack.pop():null;$("search").value="";render();if(currentFolderId)history.pushState({folder:currentFolderId},"","?folder="+currentFolderId);else history.pushState({},"","?")}
+function updateHeader(){const back=$("backBtn"),icon=$("headerIcon"),title=$("headerTitle"),bc=$("headerBreadcrumb"),count=$("headerCount");if(!currentFolderId){back.classList.remove("visible");icon.textContent="📚";icon.style.background="#3c5277";icon.style.backgroundImage="";title.textContent="English Resources";bc.textContent="Select a folder";count.textContent=getChildren(null).length+" folders";return}back.classList.add("visible");const f=folders.find(x=>x.id===currentFolderId);if(f.iconImage){icon.style.backgroundImage="url("+f.iconImage+")";icon.style.background="transparent";icon.textContent=""}else{icon.textContent=f?.icon||"📁";icon.style.background=f?.color||"#6b7280";icon.style.backgroundImage=""}title.textContent=f?.name||"Folder";const path=[];let p=f;while(p){path.unshift(p.name);p=p.parentId?folders.find(x=>x.id===p.parentId):null}bc.textContent=path.join(" › ");const subC=getChildren(currentFolderId).length;const itemC=items.filter(i=>i.folderId===currentFolderId).length;count.textContent=(subC?subC+" folders, ":"")+itemC+" items"}
+function checkUrlFolder(){const params=new URLSearchParams(window.location.search);const folderId=params.get("folder");if(folderId&&folders.find(f=>f.id===folderId)){currentFolderId=folderId;let f=folders.find(x=>x.id===folderId);while(f&&f.parentId){navStack.unshift(f.parentId);f=folders.find(x=>x.id===f.parentId)}}}
+window.addEventListener("popstate",e=>{if(e.state?.folder)currentFolderId=e.state.folder;else{currentFolderId=null;navStack=[]}render()});
+const header=$("header"),trigger=$("trigger"),main=$("main");let hideT,hovered=false;
 function show(){clearTimeout(hideT);header.classList.remove("hidden");main.classList.remove("shift")}
 function hide(){if(!hovered){header.classList.add("hidden");main.classList.add("shift")}}
 function schedule(){clearTimeout(hideT);hideT=setTimeout(hide,2500)}
-trigger.addEventListener("mouseenter",show);
-header.addEventListener("mouseenter",()=>{hovered=true;show()});
-header.addEventListener("mouseleave",()=>{hovered=false;schedule()});
-schedule();
-$("search").addEventListener("input",render);
-$("sort").addEventListener("change",render);
-render();
+trigger.addEventListener("mouseenter",show);header.addEventListener("mouseenter",()=>{hovered=true;show()});header.addEventListener("mouseleave",()=>{hovered=false;schedule()});schedule();
+$("search").addEventListener("input",render);$("sort").addEventListener("change",render);checkUrlFolder();render();
 </script>
 </body>
 </html>
