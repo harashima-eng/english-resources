@@ -54,54 +54,6 @@
   ],
   "items": [
     {
-      "id": "c771898e-52c5-4750-a8e3-1de01986f0d9",
-      "folderId": "aac20107-d8fb-4522-be26-96e73758d7b1",
-      "title": "grammar_breakdown_否定・特殊構文",
-      "fileName": "grammar_breakdown_否定・特殊構文.html",
-      "filePath": "files/aac20107-d8fb-4522-be26-96e73758d7b1/grammar_breakdown_否定・特殊構文.html",
-      "date": "2025-12-04",
-      "order": 3
-    },
-    {
-      "id": "7f581045-1a8b-4fdf-8776-e2580a74b293",
-      "folderId": "aac20107-d8fb-4522-be26-96e73758d7b1",
-      "title": "grammar_breakdown_実戦問題3",
-      "fileName": "grammar_breakdown_実戦問題3.html",
-      "filePath": "files/aac20107-d8fb-4522-be26-96e73758d7b1/grammar_breakdown_実戦問題3.html",
-      "date": "2025-12-04",
-      "order": 4
-    },
-    {
-      "id": "9f94d276-3677-4c66-ac0c-d4dfe956251c",
-      "folderId": "aac20107-d8fb-4522-be26-96e73758d7b1",
-      "title": "Grammar_Breakdown_比較",
-      "fileName": "Grammar_Breakdown_比較.html",
-      "filePath": "files/aac20107-d8fb-4522-be26-96e73758d7b1/Grammar_Breakdown_比較.html",
-      "date": "2025-12-04",
-      "order": 0
-    },
-    {
-      "id": "db804e14-8b97-430d-a764-329cd1478a13",
-      "folderId": "aac20107-d8fb-4522-be26-96e73758d7b1",
-      "title": "Grammar_Breakdown_仮定法",
-      "fileName": "Grammar_Breakdown_仮定法.html",
-      "filePath": "files/aac20107-d8fb-4522-be26-96e73758d7b1/Grammar_Breakdown_仮定法.html",
-      "date": "2025-12-04",
-      "order": 1
-    },
-    {
-      "id": "76d1d919-4552-46fd-a20c-abf987e2b361",
-      "folderId": "aac20107-d8fb-4522-be26-96e73758d7b1",
-      "title": "grammar_breakdown_実戦問題4",
-      "fileName": "grammar_breakdown_実戦問題4.html",
-      "filePath": "files/aac20107-d8fb-4522-be26-96e73758d7b1/grammar_breakdown_実戦問題4.html",
-      "date": "2025-12-04",
-      "order": 2,
-      "minutes": "",
-      "tags": [],
-      "keywords": ""
-    },
-    {
       "id": "72cd62da-ef24-486f-aa3f-a4fe1a6c755f",
       "folderId": "d157d289-5646-4c09-80f1-62f697e08b83",
       "title": "英語コミュニケーションIII｜2学期｜期末試験範囲表",
@@ -261,5 +213,5 @@
       "keywords": ""
     }
   ],
-  "lastUpdated": "2025-12-04T14:40:16.673Z"
+  "lastUpdated": "2025-12-04T14:53:04.520Z"
 }
