@@ -85,7 +85,10 @@
       "icon": "📁",
       "color": "#6b7280",
       "order": 0,
-      "iconImage": null
+      "iconImage": null,
+      "slug": "pre-1",
+      "htmlFile": "index.html",
+      "lockNavigation": false
     },
     {
       "id": "15c1dca9-9b33-411f-a492-ab22719c0d84",
@@ -95,15 +98,9 @@
       "color": "#8c4fc9",
       "order": 0,
       "iconImage": null,
-      "lockNavigation": true
-    },
-    {
-      "id": "33ab6aa5-f78e-44cc-9914-6362fc67cd01",
-      "parentId": null,
-      "name": "New Folder",
-      "icon": "📁",
-      "color": "#6b7280",
-      "order": 4
+      "lockNavigation": true,
+      "slug": "english-expression-ii",
+      "htmlFile": "index.html"
     }
   ],
   "items": [
@@ -274,7 +271,7 @@
       "folderId": "15c1dca9-9b33-411f-a492-ab22719c0d84",
       "title": "grammar_breakdown_否定・特殊構文",
       "fileName": "grammar_breakdown_否定・特殊構文.html",
-      "filePath": "grade-2/ri/files/grammar_breakdown_否定・特殊構文.html",
+      "filePath": "grade-2/english-expression-ii/files/grammar_breakdown_否定・特殊構文.html",
       "date": "2025-12-05",
       "order": 3
     },
@@ -283,7 +280,7 @@
       "folderId": "15c1dca9-9b33-411f-a492-ab22719c0d84",
       "title": "Grammar_Breakdown_仮定法",
       "fileName": "Grammar_Breakdown_仮定法.html",
-      "filePath": "grade-2/ri/files/Grammar_Breakdown_仮定法.html",
+      "filePath": "grade-2/english-expression-ii/files/Grammar_Breakdown_仮定法.html",
       "date": "2025-12-05",
       "order": 4
     },
@@ -292,7 +289,7 @@
       "folderId": "15c1dca9-9b33-411f-a492-ab22719c0d84",
       "title": "grammar_breakdown_実戦問題4",
       "fileName": "grammar_breakdown_実戦問題4.html",
-      "filePath": "grade-2/ri/files/grammar_breakdown_実戦問題4.html",
+      "filePath": "grade-2/english-expression-ii/files/grammar_breakdown_実戦問題4.html",
       "date": "2025-12-05",
       "order": 1
     },
@@ -301,7 +298,7 @@
       "folderId": "15c1dca9-9b33-411f-a492-ab22719c0d84",
       "title": "Grammar_Breakdown_比較",
       "fileName": "Grammar_Breakdown_比較.html",
-      "filePath": "grade-2/ri/files/Grammar_Breakdown_比較.html",
+      "filePath": "grade-2/english-expression-ii/files/Grammar_Breakdown_比較.html",
       "date": "2025-12-05",
       "order": 2
     },
@@ -310,7 +307,7 @@
       "folderId": "15c1dca9-9b33-411f-a492-ab22719c0d84",
       "title": "grammar_breakdown_実戦問題3",
       "fileName": "grammar_breakdown_実戦問題3.html",
-      "filePath": "grade-2/ri/files/grammar_breakdown_実戦問題3.html",
+      "filePath": "grade-2/english-expression-ii/files/grammar_breakdown_実戦問題3.html",
       "date": "2025-12-05",
       "order": 5,
       "minutes": "",
@@ -322,7 +319,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_part3_mixed_topics",
       "fileName": "eiken_pre1_part3_mixed_topics.html",
-      "filePath": "eiken/folder/files/eiken_pre1_part3_mixed_topics.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_part3_mixed_topics.html",
       "date": "2025-12-05",
       "order": 2
     },
@@ -331,7 +328,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_part2_technology_society_economy",
       "fileName": "eiken_pre1_part2_technology_society_economy.html",
-      "filePath": "eiken/folder/files/eiken_pre1_part2_technology_society_economy.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_part2_technology_society_economy.html",
       "date": "2025-12-05",
       "order": 1
     },
@@ -340,7 +337,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_part1_environment_work_education",
       "fileName": "eiken_pre1_part1_environment_work_education.html",
-      "filePath": "eiken/folder/files/eiken_pre1_part1_environment_work_education.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_part1_environment_work_education.html",
       "date": "2025-12-05",
       "order": 0
     },
@@ -349,7 +346,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_part7_FINAL",
       "fileName": "eiken_pre1_part7_FINAL.html",
-      "filePath": "eiken/folder/files/eiken_pre1_part7_FINAL.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_part7_FINAL.html",
       "date": "2025-12-05",
       "order": 6
     },
@@ -358,7 +355,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_part4_politics_media_health",
       "fileName": "eiken_pre1_part4_politics_media_health.html",
-      "filePath": "eiken/folder/files/eiken_pre1_part4_politics_media_health.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_part4_politics_media_health.html",
       "date": "2025-12-05",
       "order": 3
     },
@@ -367,7 +364,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_part5_family_education_global",
       "fileName": "eiken_pre1_part5_family_education_global.html",
-      "filePath": "eiken/folder/files/eiken_pre1_part5_family_education_global.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_part5_family_education_global.html",
       "date": "2025-12-05",
       "order": 4
     },
@@ -376,7 +373,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_speaking_phrase_bank_simple",
       "fileName": "eiken_pre1_speaking_phrase_bank_simple.html",
-      "filePath": "eiken/folder/files/eiken_pre1_speaking_phrase_bank_simple.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_speaking_phrase_bank_simple.html",
       "date": "2025-12-05",
       "order": 7
     },
@@ -385,7 +382,7 @@
       "folderId": "93c8d7e5-599c-4781-97bc-da9af768aa10",
       "title": "eiken_pre1_universal_phrases",
       "fileName": "eiken_pre1_universal_phrases.html",
-      "filePath": "eiken/folder/files/eiken_pre1_universal_phrases.html",
+      "filePath": "eiken/pre-1/files/eiken_pre1_universal_phrases.html",
       "date": "2025-12-05",
       "order": 5,
       "minutes": "",
@@ -417,5 +414,5 @@
       "keywords": ""
     }
   ],
-  "lastUpdated": "2025-12-06T14:48:19.225Z"
+  "lastUpdated": "2025-12-06T14:49:24.628Z"
 }
